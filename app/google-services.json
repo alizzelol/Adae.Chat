@@ -1,0 +1,143 @@
+{
+  "project_info": {
+    "project_number": "652824743057",
+    "project_id": "fir-95365",
+    "storage_bucket": "fir-95365.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:652824743057:android:a2c9201edc1679fb644330",
+        "android_client_info": {
+          "package_name": "com.alizzelol.adaechat"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDqu6PgxdqTXzm0XKakwaUgEd594EF5ZsM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:652824743057:android:50391784eb05719b644330",
+        "android_client_info": {
+          "package_name": "com.alizzelol.firestore"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDqu6PgxdqTXzm0XKakwaUgEd594EF5ZsM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:652824743057:android:4ef9e4758946cbac644330",
+        "android_client_info": {
+          "package_name": "com.alizzelol.geminis"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDqu6PgxdqTXzm0XKakwaUgEd594EF5ZsM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:652824743057:android:90e496aa2f92a20b644330",
+        "android_client_info": {
+          "package_name": "com.alizzelol.listfirestore"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDqu6PgxdqTXzm0XKakwaUgEd594EF5ZsM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:652824743057:android:0a2b036fc94a34bb644330",
+        "android_client_info": {
+          "package_name": "com.alizzelol.mensajefunciona"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDqu6PgxdqTXzm0XKakwaUgEd594EF5ZsM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:652824743057:android:fe4d6293a316a017644330",
+        "android_client_info": {
+          "package_name": "com.alizzelol.receive"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDqu6PgxdqTXzm0XKakwaUgEd594EF5ZsM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:652824743057:android:ec66c7e79f77facb644330",
+        "android_client_info": {
+          "package_name": "com.alizzelol.subcoleccionmessages"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDqu6PgxdqTXzm0XKakwaUgEd594EF5ZsM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

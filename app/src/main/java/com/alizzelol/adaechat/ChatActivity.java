@@ -17,6 +17,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.ArrayList;
+
 import java.util.List;
 
 public class ChatActivity extends AppCompatActivity implements ConversationAdapter.OnItemClickListener{

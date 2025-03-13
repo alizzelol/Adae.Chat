@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Adae.Chat</string>
+    <string name="btnLogin">Iniciar Sesión</string>
+    <string name="btnRegistrarse">Registrarse</string>
 </resources>

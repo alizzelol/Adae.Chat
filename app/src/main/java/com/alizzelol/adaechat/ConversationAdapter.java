@@ -58,7 +58,6 @@ public class ConversationAdapter extends RecyclerView.Adapter<ConversationAdapte
         }
 
         holder.btnDeleteConversation.setTag(conversation.getConversationId());
-
         holder.itemView.setOnClickListener(v -> listener.onItemClick(conversation));
     }
 

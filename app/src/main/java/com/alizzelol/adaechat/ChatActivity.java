@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.Toast;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
@@ -17,7 +18,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.ArrayList;
-
 import java.util.List;
 
 public class ChatActivity extends AppCompatActivity implements ConversationAdapter.OnItemClickListener{
@@ -81,20 +81,13 @@ public class ChatActivity extends AppCompatActivity implements ConversationAdapt
                     }
 
                     if (snapshots != null) {
-                        List<Conversation> newConversations = new ArrayList<>();
+                        conversations.clear();
                         for (DocumentSnapshot document : snapshots) {
                             Conversation conversation = document.toObject(Conversation.class);
-                            if (conversation != null) {
-                                List<String> deletedBy = conversation.getDeletedBy();
-                                if (deletedBy == null || !deletedBy.contains(username)) {
-                                    newConversations.add(conversation);
-                                } else {
-                                    Log.d("ChatActivity", "Conversación filtrada: " + conversation.getConversationId());
-                                }
+                            if (conversation != null && (conversation.getDeletedBy() == null || !conversation.getDeletedBy().contains(username))) {
+                                conversations.add(conversation);
                             }
                         }
-                        conversations.clear();
-                        conversations.addAll(newConversations);
                         adapter.notifyDataSetChanged();
                     }
                 });
@@ -127,7 +120,12 @@ public class ChatActivity extends AppCompatActivity implements ConversationAdapt
                 if (btnDelete != null) {
                     btnDelete.setOnClickListener(v -> {
                         String conversationId = (String) btnDelete.getTag();
-                        deleteConversation(conversationId);
+                        if (conversationId != null) {
+                            deleteConversation(conversationId);
+                        } else {
+                            Log.e("ChatActivity", "conversationId es nulo en el tag del botón.");
+                            Toast.makeText(ChatActivity.this, "Error al obtener la ID de la conversación.", Toast.LENGTH_SHORT).show();
+                        }
                     });
                 }
             }
@@ -151,7 +149,7 @@ public class ChatActivity extends AppCompatActivity implements ConversationAdapt
                         db.collection("chats").document(conversationId).update("deletedBy", deletedBy)
                                 .addOnSuccessListener(aVoid -> {
                                     Log.d("ChatActivity", "Conversación marcada como eliminada para el usuario.");
-                                    // loadConversations(); // El SnapshotListener ya se encarga de esto.
+                                    loadConversations(); // Recargar las conversaciones después de la eliminación
                                 })
                                 .addOnFailureListener(e -> Log.e("ChatActivity", "Error al marcar conversación como eliminada: " + e.getMessage()));
                     }

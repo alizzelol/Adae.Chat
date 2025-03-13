@@ -17,4 +17,13 @@
         <item>admin</item>
         <item>padre/madre</item>
     </string-array>
+    <string name="tvContactName">Nombre del Destinatario</string>
+    <string name="tvLastMessage">Último Mensaje</string>
+    <string name="tvLastTimestamp">Hora del último mensaje</string>
+    <string name="btnDeleteConversation">Eliminar Conversación</string>
+    <string name="new_chat">New Chat</string>
+    <string name="Lcontactos">Lista de Contactos</string>
+    <string name="etMessage">Escribe un mensaje</string>
+    <string name="btnSend">Enviar</string>
+    <string name="chat">Chat</string>
 </resources>

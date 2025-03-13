@@ -5,4 +5,16 @@
     <string name="etEmail">Email</string>
     <string name="etContrasena">Contraseña</string>
     <string name="Login_login">Login</string>
+    <string name="registro">Registro</string>
+    <string name="Rnombre">Nombre</string>
+    <string name="Rapellido">Apellido</string>
+    <string name="Remail">Email</string>
+    <string name="Rcontraseña">Contraseña</string>
+    <string name="Rcontraseña2">Contraseña2</string>
+    <string name="Rtelefono">Teléfono</string>
+    <string name="Rañadir">Añadir</string>
+    <string-array name="roles_array">
+        <item>admin</item>
+        <item>padre/madre</item>
+    </string-array>
 </resources>

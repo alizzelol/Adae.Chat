@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".RegistrarseActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/registro"
+        android:textSize="24sp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="16dp"/>
+
+    <EditText
+        android:id="@+id/editTextNombre"
+        android:layout_width="300dp"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:inputType="text"
+        android:autofillHints="name"
+        android:hint="@string/Rnombre" />
+
+    <EditText
+        android:id="@+id/editTextApellido"
+        android:layout_width="300dp"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:inputType="text"
+        android:autofillHints="name"
+        android:hint="@string/Rapellido" />
+
+    <EditText
+        android:id="@+id/editTextEmail"
+        android:layout_width="300dp"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:hint="@string/Remail"
+        android:autofillHints="emailAddress"
+        android:inputType="textEmailAddress" />
+
+    <EditText
+        android:id="@+id/editTextPassword"
+        android:layout_width="300dp"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:hint="@string/Rcontraseña"
+        android:autofillHints="password"
+        android:inputType="textPassword" />
+
+    <EditText
+        android:id="@+id/editTextPassword2"
+        android:layout_width="300dp"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:autofillHints="password"
+        android:hint="@string/Rcontraseña2"
+        android:inputType="textPassword" />
+
+    <EditText
+        android:id="@+id/editTextTelefono"
+        android:layout_width="300dp"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:autofillHints="phone"
+        android:hint="@string/Rtelefono"
+        android:inputType="phone" />
+
+    <Spinner
+        android:id="@+id/spinnerRol"
+        android:textSize="20sp"
+        android:layout_width="300dp"
+        android:layout_gravity="center"
+        android:layout_height="48dp" android:layout_marginTop="10dp"  />
+
+    <Button
+        android:id="@+id/buttonAñadir"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:text="@string/Rañadir" />
+
+</LinearLayout>

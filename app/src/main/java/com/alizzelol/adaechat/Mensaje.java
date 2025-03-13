@@ -8,7 +8,6 @@ public class Mensaje {
     private Date timestamp;
 
     public Mensaje() {
-        // Constructor vacío requerido por Firestore
     }
 
     public Mensaje(String emisor, String contenidoMensaje, Date timestamp) {

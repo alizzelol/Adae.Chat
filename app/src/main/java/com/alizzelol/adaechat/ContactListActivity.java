@@ -4,17 +4,20 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
+
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -27,6 +30,7 @@ public class ContactListActivity extends AppCompatActivity {
     private List<User> contacts;
     private FirebaseFirestore db;
     private String username;
+    private String userId; // Añadido userId
     private ActivityResultLauncher<Intent> conversationLauncher;
 
     @Override
@@ -36,11 +40,12 @@ public class ContactListActivity extends AppCompatActivity {
 
         rvContacts = findViewById(R.id.rvContacts);
         username = getIntent().getStringExtra("username");
+        userId = getIntent().getStringExtra("userId"); // Obtener userId
 
-        Log.d("ContactListActivity", "Username: " + username);
+        Log.d("ContactListActivity", "UserId: " + userId);
 
         contacts = new ArrayList<>();
-        adapter = new ContactListAdapter(contacts, username, this);
+        adapter = new ContactListAdapter(contacts, username, this); // Pasar username al adapter
         rvContacts.setLayoutManager(new LinearLayoutManager(this));
         rvContacts.setAdapter(adapter);
 
@@ -64,7 +69,7 @@ public class ContactListActivity extends AppCompatActivity {
                     contacts.clear();
                     for (DocumentSnapshot document : task.getResult()) {
                         User user = document.toObject(User.class);
-                        if (user != null && !user.getUsername().equals(username)) {
+                        if (user != null && !user.getUserId().equals(userId)) { // Usar userId para la comparación
                             contacts.add(user);
                         }
                     }
@@ -77,9 +82,9 @@ public class ContactListActivity extends AppCompatActivity {
         });
     }
 
-    public void startConversationActivity(String contactUsername) {
-        String conversationId = generateConversationId(username, contactUsername);
-        List<String> users = Arrays.asList(username, contactUsername);
+    public void startConversationActivity(String contactUsername) { // Recibe contactUsername
+        String conversationId = generateConversationId(username, contactUsername); // Usa username
+        List<String> users = Arrays.asList(username, contactUsername); // Usa username
         List<String> deletedBy = new ArrayList<>();
 
         Log.d("ContactListActivity", "Starting conversation with: " + contactUsername);
@@ -91,19 +96,21 @@ public class ContactListActivity extends AppCompatActivity {
                         Log.d("ContactListActivity", "Conversation already exists.");
                         Intent intent = new Intent(ContactListActivity.this, ConversationActivity.class);
                         intent.putExtra("username", username);
-                        intent.putExtra("contactUsername", contactUsername);
+                        intent.putExtra("userId", userId); // Pasar userId
+                        intent.putExtra("contactUsername", contactUsername); // Pasar contactUsername
                         intent.putExtra("conversationId", conversationId);
                         conversationLauncher.launch(intent);
                     } else {
                         Log.d("ContactListActivity", "Creating new conversation.");
-                        Conversation conversation = new Conversation(conversationId, contactUsername, "", new Date(), users, deletedBy);
+                        Conversation conversation = new Conversation(conversationId, contactUsername, "", new Date(), users, deletedBy); // Usa contactUsername
 
                         db.collection("chats").document(conversationId).set(conversation)
                                 .addOnSuccessListener(aVoid -> {
                                     Log.d("ContactListActivity", "Conversation created successfully.");
                                     Intent intent = new Intent(ContactListActivity.this, ConversationActivity.class);
                                     intent.putExtra("username", username);
-                                    intent.putExtra("contactUsername", contactUsername);
+                                    intent.putExtra("userId", userId); // Pasar userId
+                                    intent.putExtra("contactUsername", contactUsername); // Pasar contactUsername
                                     intent.putExtra("conversationId", conversationId);
                                     conversationLauncher.launch(intent);
                                 })
@@ -119,10 +126,10 @@ public class ContactListActivity extends AppCompatActivity {
                 });
     }
 
-    private String generateConversationId(String username1, String username2) {
-        String[] usernames = {username1, username2};
-        Arrays.sort(usernames);
-        String generatedId = usernames[0] + "_" + usernames[1];
+    private String generateConversationId(String username1, String username2) { // Usa username
+        String[] usernames = {username1, username2}; // Usa username
+        Arrays.sort(usernames); // Usa username
+        String generatedId = usernames[0] + "_" + usernames[1]; // Usa username
         Log.d("ContactListActivity", "Generated ConversationId: " + generatedId);
         return generatedId;
     }

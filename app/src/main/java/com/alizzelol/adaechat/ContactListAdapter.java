@@ -1,11 +1,14 @@
 package com.alizzelol.adaechat;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
 import java.util.List;
 
 public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.ContactViewHolder> {
@@ -30,13 +33,23 @@ public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.
     @Override
     public void onBindViewHolder(@NonNull ContactViewHolder holder, int position) {
         User contact = contacts.get(position);
-        holder.tvContactName.setText(contact.getUsername());
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                activity.startConversationActivity(contact.getUsername());
-            }
-        });
+        if (contact != null) {
+            holder.tvContactName.setText(contact.getUsername());
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String contactUsername = contact.getUsername();
+                    if (contactUsername != null) {
+                        Log.d("ContactListAdapter", "Contact clicked: " + contactUsername);
+                        activity.startConversationActivity(contactUsername);
+                    } else {
+                        Log.e("ContactListAdapter", "Contact username is null");
+                    }
+                }
+            });
+        } else {
+            Log.e("ContactListAdapter", "Contact is null at position: " + position);
+        }
     }
 
     @Override

@@ -16,9 +16,8 @@
         android:layout_marginBottom="16dp"/>
 
     <EditText
-        android:id="@+id/editTextNombre"
-        android:layout_width="300dp"
-        android:layout_gravity="center"
+        android:id="@+id/etUsuario"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:inputType="text"
@@ -26,69 +25,28 @@
         android:hint="@string/Rnombre" />
 
     <EditText
-        android:id="@+id/editTextApellido"
-        android:layout_width="300dp"
-        android:layout_gravity="center"
+        android:id="@+id/etEmail"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:inputType="text"
-        android:autofillHints="name"
-        android:hint="@string/Rapellido" />
-
-    <EditText
-        android:id="@+id/editTextEmail"
-        android:layout_width="300dp"
-        android:layout_gravity="center"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
         android:hint="@string/Remail"
+        android:textSize="20sp"
         android:autofillHints="emailAddress"
         android:inputType="textEmailAddress" />
 
     <EditText
-        android:id="@+id/editTextPassword"
-        android:layout_width="300dp"
-        android:layout_gravity="center"
+        android:id="@+id/etContraseña"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
         android:hint="@string/Rcontraseña"
-        android:autofillHints="password"
-        android:inputType="textPassword" />
-
-    <EditText
-        android:id="@+id/editTextPassword2"
-        android:layout_width="300dp"
-        android:layout_gravity="center"
-        android:layout_height="wrap_content"
         android:textSize="20sp"
         android:autofillHints="password"
-        android:hint="@string/Rcontraseña2"
         android:inputType="textPassword" />
-
-    <EditText
-        android:id="@+id/editTextTelefono"
-        android:layout_width="300dp"
-        android:layout_gravity="center"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:autofillHints="phone"
-        android:hint="@string/Rtelefono"
-        android:inputType="phone" />
-
-    <Spinner
-        android:id="@+id/spinnerRol"
-        android:textSize="20sp"
-        android:layout_width="300dp"
-        android:layout_gravity="center"
-        android:layout_height="48dp" android:layout_marginTop="10dp"  />
 
     <Button
-        android:id="@+id/buttonAñadir"
-        android:layout_width="wrap_content"
+        android:id="@+id/btnRegistrarse"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:layout_marginTop="10dp"
-        android:layout_gravity="center"
-        android:text="@string/Rañadir" />
+        android:layout_marginTop="16dp"
+        android:text="@string/btnRegistrarse" />
 
 </LinearLayout>

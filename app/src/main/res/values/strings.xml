@@ -26,4 +26,6 @@
     <string name="etMessage">Escribe un mensaje</string>
     <string name="btnSend">Enviar</string>
     <string name="chat">Chat</string>
+    <string name="showL">Hello</string>
+    <string name="tvName">Nombre de Usuario</string>
 </resources>

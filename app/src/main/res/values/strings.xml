@@ -2,4 +2,7 @@
     <string name="app_name">Adae.Chat</string>
     <string name="btnLogin">Iniciar Sesión</string>
     <string name="btnRegistrarse">Registrarse</string>
+    <string name="etEmail">Email</string>
+    <string name="etContrasena">Contraseña</string>
+    <string name="Login_login">Login</string>
 </resources>

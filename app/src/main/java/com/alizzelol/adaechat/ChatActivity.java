@@ -80,13 +80,20 @@ public class ChatActivity extends AppCompatActivity implements ConversationAdapt
                     }
 
                     if (snapshots != null) {
-                        conversations.clear();
+                        List<Conversation> newConversations = new ArrayList<>();
                         for (DocumentSnapshot document : snapshots) {
                             Conversation conversation = document.toObject(Conversation.class);
-                            if (conversation != null && (conversation.getDeletedBy() == null || !conversation.getDeletedBy().contains(username))) {
-                                conversations.add(conversation);
+                            if (conversation != null) {
+                                List<String> deletedBy = conversation.getDeletedBy();
+                                if (deletedBy == null || !deletedBy.contains(username)) {
+                                    newConversations.add(conversation);
+                                } else {
+                                    Log.d("ChatActivity", "Conversación filtrada: " + conversation.getConversationId());
+                                }
                             }
                         }
+                        conversations.clear();
+                        conversations.addAll(newConversations);
                         adapter.notifyDataSetChanged();
                     }
                 });
@@ -143,7 +150,7 @@ public class ChatActivity extends AppCompatActivity implements ConversationAdapt
                         db.collection("chats").document(conversationId).update("deletedBy", deletedBy)
                                 .addOnSuccessListener(aVoid -> {
                                     Log.d("ChatActivity", "Conversación marcada como eliminada para el usuario.");
-                                    loadConversations(); // Recargar las conversaciones después de la eliminación
+                                    // loadConversations(); // El SnapshotListener ya se encarga de esto.
                                 })
                                 .addOnFailureListener(e -> Log.e("ChatActivity", "Error al marcar conversación como eliminada: " + e.getMessage()));
                     }

@@ -1,19 +1,16 @@
 # CALENDARIO
-## Introducción
+## Introduction
+I am creating a private chat, to those people that will want to have a way to communicate outside others line of communication.
 
-Esta aplicación la estoy creando como modo de hacer un chat privado, solo para aquellas personas que al registrarse en el chat puedan hablar entre ellas.
+## Goals
+The goal of this application is to have a private chat to handle of the way whoever wants, even if it is to join it the other proyect.
 
-## Objetivo
+## Structure
+The structure is:
+- ContactListActivity -> to have a record of the people register to the app.
+- ChatActivity -> where to have a record og the conversations
+- ConversationActivity -> to communicate with other users
 
-El objetivo de mi aplicación es que aquellas personas que quieran tener un chat privado, por ejemplo, para hablar temas particulares, puedan tener un chat aparte del que ya tengan en su móvil.
-
-## Estructura y funcionalidades
-
-La estructura de esta aplicación:
-- ContactListActivity -> donde quedarán registradas aquellas personas que podrán formar parte del chat
-- ChatActivity -> lugar donde quedará el registro de las conversaciones activas
-- ConversationActivity -> desde donde se llevarán a cabo las conversaciones entre dos usuarios
-
-## Como contribuir
-Esta aplicación aún no es funcional, pero si quisieran ver cómo funciona hasta ahora:
+## Contributing
+To access the details of the app:
 [apk](https://drive.google.com/drive/folders/1Mb5ORQXJdPnuFczRN-d78vPKNOIUd4Ce)

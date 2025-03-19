@@ -1,6 +1,6 @@
 # CALENDARIO
 ## Introduction
-I am creating a private chat, to those people that will want to have a way to communicate outside others line of communication.
+I've created a private chat, to those people that will want to have a way to communicate outside others line of communication.
 
 ## Goals
 The goal of this application is to have a private chat to handle of the way whoever wants, even if it is to join it the other proyect.
